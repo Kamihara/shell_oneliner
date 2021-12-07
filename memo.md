@@ -54,3 +54,17 @@ awkだけで集計
 奇数 3
 偶数 2
 ```
+
+bashをコマンドとして使い、ディレクトリを作成する
+```
+❯ seq 4 | awk '{print "mkdir " ($1%2 ? "odd_":"even_") $1}' | bash
+❯ ll
+Permissions Size User  Date Modified    Date Created     Git Name
+drwxr-xr-x     - ykami 2021-12-08 00:50 2021-12-08 00:50  --  even_2
+drwxr-xr-x     - ykami 2021-12-08 00:50 2021-12-08 00:50  --  even_4
+drwxr-xr-x     - ykami 2021-12-08 00:50 2021-12-08 00:50  --  odd_1
+drwxr-xr-x     - ykami 2021-12-08 00:50 2021-12-08 00:50  --  odd_3
+.rw-r--r--     2 ykami 2021-11-28 19:21 2021-11-28 19:21  -N  a
+.rw-r--r--  1.1k ykami 2021-11-28 23:36 2021-11-28 23:36  --  memo.md
+.rw-r--r--    16 ykami 2021-11-28 19:10 2021-11-28 19:10  --  README.md
+```
